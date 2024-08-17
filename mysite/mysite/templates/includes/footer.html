@@ -1,3 +1,7 @@
+{# Load navigation_tags at the top of the file: #}
+{# 要在檔案的開頭加上 navigation_tags #}
+{% load navigation_tags %}
+
 <footer>
     <p>Built with Wagtail</p>
 
@@ -17,4 +21,7 @@
             </p>
         {% endif %}
     {% endwith %}
+    {# Add footer_text: #}
+    {# 加上 footer 文字: #}
+    {% get_footer_text %}
 </footer>
