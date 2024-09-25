@@ -13,7 +13,7 @@ urlpatterns = [
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
-    path("api/", include("api.urls")),  # Add this line
+    path("api/", include("api.urls")),
 ]
 
 if settings.DEBUG:
