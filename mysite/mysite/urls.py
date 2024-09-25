@@ -13,8 +13,8 @@ urlpatterns = [
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
+    path("api/", include("api.urls")),  # Add this line
 ]
-
 
 if settings.DEBUG:
     from django.conf.urls.static import static
