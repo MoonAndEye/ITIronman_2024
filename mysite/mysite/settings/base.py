@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "wagtail.search",
     "wagtail.admin",
     "wagtail",
+    "wagtail.api.v2",
     "modelcluster",
     "taggit",
     "django.contrib.admin",
@@ -49,7 +50,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "wagtail.contrib.settings",
-    "wagtail.api.v2",
 ]
 
 MIDDLEWARE = [
@@ -70,6 +70,8 @@ TEMPLATES = [
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
             os.path.join(PROJECT_DIR, "templates"),
+            # 添加這一行
+            os.path.join(BASE_DIR, "myenv/lib/python3.11/site-packages/rest_framework/templates"),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
