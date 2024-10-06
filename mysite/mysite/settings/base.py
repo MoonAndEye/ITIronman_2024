@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     "blog",
     "home",
     "search",
+    "api",  # 添加這一行
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "wagtail.contrib.settings",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
