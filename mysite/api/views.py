@@ -3,14 +3,16 @@ from django.contrib.auth.models import User
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 
-@api_view(['GET'])
+
+@api_view(["GET"])
 def hello_world(request):
     return JsonResponse({"message": "Hello, World!"})
 
-@api_view(['POST'])
+
+@api_view(["POST"])
 def login_view(request):
-    account = request.data.get('account')
-    password = request.data.get('password')
+    account = request.data.get("account")
+    password = request.data.get("password")
 
     user = authenticate(username=account, password=password)
 

@@ -74,7 +74,9 @@ TEMPLATES = [
         "DIRS": [
             os.path.join(PROJECT_DIR, "templates"),
             # 添加這一行
-            os.path.join(BASE_DIR, "myenv/lib/python3.11/site-packages/rest_framework/templates"),
+            os.path.join(
+                BASE_DIR, "myenv/lib/python3.11/site-packages/rest_framework/templates"
+            ),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
