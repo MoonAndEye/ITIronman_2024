@@ -21,6 +21,7 @@ class CardBlock(StructBlock):
         icon = "form"
         template = "portfolio/blocks/card_block.html"
 
+
 # add FeaturedPostsBlock:
 # 加上 特色文章 block
 class FeaturedPostsBlock(StructBlock):
@@ -32,10 +33,10 @@ class FeaturedPostsBlock(StructBlock):
         icon = "folder-open-inverse"
         template = "portfolio/blocks/featured_posts_block.html"
 
+
 class PortfolioStreamBlock(BaseStreamBlock):
     # delete the pass statement
     # 請把之前的 pass 刪除掉
 
     card = CardBlock(group="Sections")
     featured_posts = FeaturedPostsBlock(group="Sections")
-    

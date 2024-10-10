@@ -14,7 +14,7 @@ urlpatterns = [
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
     path("search/", search_views.search, name="search"),
-    path('api/', include('api.urls')),
+    path("api/", include("api.urls")),
     path("api/v2/", api_router.urls),
     # Ensure that the api_router line appears above the default Wagtail page serving route
     re_path(r"^", include(wagtail_urls)),
