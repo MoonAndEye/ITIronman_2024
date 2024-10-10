@@ -1,12 +1,15 @@
 from django.contrib.auth import authenticate
 from django.http import JsonResponse
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework_simplejwt.tokens import RefreshToken
 
-@api_view(["GET"])
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def hello_world(request):
-    return JsonResponse({"message": "Hello, World!"})
-
+    return Response({"message": "Hello, World!"})
 
 @api_view(["POST"])
 def login_view(request):
