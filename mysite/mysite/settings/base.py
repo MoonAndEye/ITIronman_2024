@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "wagtail.contrib.settings",
     "rest_framework",
+    "rest_framework_simplejwt",
 ]
 
 MIDDLEWARE = [
@@ -74,7 +75,9 @@ TEMPLATES = [
         "DIRS": [
             os.path.join(PROJECT_DIR, "templates"),
             # 添加這一行
-            os.path.join(BASE_DIR, "myenv/lib/python3.11/site-packages/rest_framework/templates"),
+            os.path.join(
+                BASE_DIR, "myenv/lib/python3.11/site-packages/rest_framework/templates"
+            ),
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -200,3 +203,16 @@ WAGTAILDOCS_EXTENSIONS = [
     "xlsx",
     "zip",
 ]
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+}
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    )
+}
