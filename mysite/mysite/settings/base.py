@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "home",
     "search",
     "api",  # 添加這一行
+    "wagtail.locales",  # 添加這一行 啟動 locale
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",
@@ -58,6 +59,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",  # 添加這行
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -128,7 +130,20 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+from django.utils.translation import gettext_lazy as _
+
+USE_I18N = True
+USE_L10N = True
+WAGTAIL_I18N_ENABLED = True
+
+LANGUAGE_CODE = "en"
+
+LANGUAGES = [
+    ("en", _("English")),
+    ("zh-hant", _("Traditional Chinese")),
+]
+
+WAGTAIL_CONTENT_LANGUAGES = LANGUAGES
 
 TIME_ZONE = "UTC"
 
@@ -216,3 +231,7 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     )
 }
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, "locale"),
+]
